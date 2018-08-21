@@ -7,7 +7,8 @@ import del from 'del';
 const tsProject: Project = createProject(resolve(process.env.INIT_CWD, 'tsconfig.json'));
 const dist: string = resolve(process.env.INIT_CWD, 'dist');
 const staticFiles: string[] = [
-  resolve(process.env.INIT_CWD, 'package.json')
+  resolve(process.env.INIT_CWD, 'package.json'),
+  resolve(process.env.INIT_CWD, 'README.md')
 ];
 
 task('clean', () => del(dist, {
@@ -18,7 +19,9 @@ task('compile', () => {
   return tsProject.src().pipe(tsProject()).pipe(dest(dist));
 });
 
-task('copy', () => src(staticFiles).pipe(dest(dist)).pipe(install({
+task('copy', () => src(staticFiles, {
+  allowEmpty: true
+}).pipe(dest(dist)).pipe(install({
   production: true
 })));
 

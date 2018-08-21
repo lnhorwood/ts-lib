@@ -2,7 +2,8 @@
   "name": "@horwood/ts-lib",
   "version": "1.0.3",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "build": "ts-node src/cli"
   },
