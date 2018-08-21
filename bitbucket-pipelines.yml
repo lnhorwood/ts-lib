@@ -13,3 +13,19 @@ pipelines:
         script:
           - npm install
           - npm test
+  custom: 
+      publish:
+        - step:
+            name: Publish changes to NPM and GitHub
+            image: node:latest
+            script:
+              - git checkout master
+              - printf "//`node -p \"require('url').parse('https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\nscope=@horwood\n" >> ~/.npmrc
+              - npm install
+              - git config user.email "${GIT_EMAIL}"
+              - git config user.name "Luke Horwood"
+              - git reset --hard
+              - npm version patch -m "Upgrading to %s for release."
+              - npm run build
+              - npm publish dist --access=public
+              - git push --follow-tags    
