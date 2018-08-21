@@ -16,8 +16,7 @@
     "@types/gulp": "^4.0.5",
     "@types/gulp-install": "^0.6.31",
     "@types/node": "^10.7.1",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.0.1"
+    "ts-node": "^7.0.1"
   },
   "dependencies": {
     "child_process": "^1.0.2",
@@ -25,6 +24,7 @@
     "gulp": "^4.0.0",
     "gulp-install": "^1.1.0",
     "gulp-typescript": "^5.0.0-alpha.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "typescript": "^3.0.1"
   }
 }
