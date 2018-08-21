@@ -10,7 +10,9 @@ const staticFiles: string[] = [
   resolve(process.env.INIT_CWD, 'package.json')
 ];
 
-task('clean', () => del(dist));
+task('clean', () => del(dist, {
+  force: true
+}));
 
 task('compile', () => {
   return tsProject.src().pipe(tsProject()).pipe(dest(dist));
