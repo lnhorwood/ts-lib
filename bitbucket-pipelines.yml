@@ -29,3 +29,5 @@ pipelines:
               - npm run build
               - npm publish dist --access=public
               - git push --follow-tags    
+              - git remote add github git@github.com:lnhorwood/ts-lib.git
+              - git push github master --follow-tags
