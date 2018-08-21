@@ -4,6 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "types": "src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lnhorwood/ts-lib.git"
+  },
   "scripts": {
     "build": "ts-node src/cli"
   },
