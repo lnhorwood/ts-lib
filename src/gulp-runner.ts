@@ -1,5 +1,6 @@
 import {resolve} from "path";
 import {execSync} from "child_process";
+import {argv} from "yargs";
 
 export class GulpRunner {
 
@@ -15,7 +16,7 @@ export class GulpRunner {
   }
 
   execute(taskName: string = 'default'): Buffer {
-    return execSync(`${this._gulp} --cwd ${this._gulpfileDir} ${taskName}`, {
+    return execSync(`${this._gulp} ${argv.tsLibConf ? `--tsLibConf ${argv.tsLibConf}` : ''} --cwd ${this._gulpfileDir} ${taskName}`, {
       stdio: 'inherit'
     });
   }
