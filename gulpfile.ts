@@ -1,5 +1,4 @@
 import {dest, series, src, task} from 'gulp';
-import install from 'gulp-install';
 import {createProject, Project} from "gulp-typescript";
 import {resolve} from "path";
 import del from 'del';
@@ -36,8 +35,6 @@ task('compile', () => {
   return tsProject.src().pipe(tsProject()).pipe(dest(dist));
 });
 
-task('copy', () => src(argv.staticFiles).pipe(dest(dist)).pipe(install({
-  production: true
-})));
+task('copy', () => src(argv.staticFiles).pipe(dest(dist)));
 
 task('default', series('clean', 'compile', 'copy'));
